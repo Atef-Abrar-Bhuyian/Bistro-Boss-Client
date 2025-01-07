@@ -4,10 +4,12 @@ import Category from "../Category/Category";
 import PopularMenu from "../PopularMenu/PopularMenu";
 import Featured from "../Featured/Featured";
 import Testimonial from "../Testimonial/Testimonial";
+import ReactHelmet from "../../../components/ReactHelmet/ReactHelmet";
 
 const Home = () => {
   return (
     <div>
+      <ReactHelmet title={"BistroBoss | Home"}></ReactHelmet>
       <Banner></Banner>
       <Category></Category>
       <PopularMenu></PopularMenu>
