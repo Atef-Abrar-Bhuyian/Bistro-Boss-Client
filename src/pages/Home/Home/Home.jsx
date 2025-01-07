@@ -12,7 +12,7 @@ import RecommendedItems from "../RecommendedItems/RecommendedItems";
 const Home = () => {
   return (
     <div>
-      <ReactHelmet title={"BistroBoss | Home"}></ReactHelmet>
+      <ReactHelmet title={"Home"}></ReactHelmet>
       <Banner></Banner>
       <Category></Category>
       <BistroSection></BistroSection>

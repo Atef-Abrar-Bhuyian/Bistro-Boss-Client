@@ -5,7 +5,7 @@ const ReactHelmet = ({ title }) => {
   return (
     <div>
       <Helmet>
-        <title>{title}</title>
+        <title>BistroBoss | {title}</title>
       </Helmet>
     </div>
   );

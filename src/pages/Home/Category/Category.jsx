@@ -31,31 +31,31 @@ const Category = () => {
       >
         <SwiperSlide>
           <img src={slide1} alt="" />
-          <h3 className="text-xl md:text-4xl uppercase text-center -mt-16 text-white">
+          <h3 className="text-xl md:text-4xl uppercase text-center md:-mt-16 text-white">
             Salad
           </h3>
         </SwiperSlide>
         <SwiperSlide>
-          <img className="w-full " src={slide2} alt="" />
-          <h3 className="text-xl md:text-4xl uppercase text-center -mt-16 text-white">
-            Pizza
+          <img className="w-full" src={slide2} alt="" />
+          <h3 className="text-xl md:text-4xl uppercase text-center md:-mt-28 text-white">
+            PIZZA
           </h3>
         </SwiperSlide>
         <SwiperSlide>
           <img src={slide3} alt="" />
-          <h3 className="text-xl md:text-4xl uppercase text-center -mt-16 text-white">
+          <h3 className="text-xl md:text-4xl uppercase text-center md:-mt-16 text-white">
             Soup
           </h3>
         </SwiperSlide>
         <SwiperSlide>
           <img src={slide4} alt="" />
-          <h3 className="text-xl md:text-4xl uppercase text-center -mt-16 text-white">
+          <h3 className="text-xl md:text-4xl uppercase text-center md:-mt-16 text-white">
             Desserts
           </h3>
         </SwiperSlide>
         <SwiperSlide>
           <img src={slide5} alt="" />
-          <h3 className="text-xl md:text-4xl uppercase text-center -mt-16 text-white">
+          <h3 className="text-xl md:text-4xl uppercase text-center md:-mt-16 text-white">
             Salad
           </h3>
         </SwiperSlide>
