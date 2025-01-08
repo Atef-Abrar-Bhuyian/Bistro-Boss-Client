@@ -27,6 +27,8 @@ const Menu = () => {
         title={"Our Menu"}
         description={"Would you like to try a dish?"}
       ></Cover>
+
+
       {/* Today's Offered section */}
       <SectionTitle
         subHeading={"Dont Miss"}
@@ -35,6 +37,7 @@ const Menu = () => {
       <MenuCategory items={offered}></MenuCategory>
       <div className="mb-10 flex justify-center items-center">
         <ButtonWithBottomBorder
+        item={"salad"}
           content={"ORDER YOUR FAVOURITE FOOD"}
         ></ButtonWithBottomBorder>
       </div>
@@ -51,6 +54,7 @@ const Menu = () => {
 
       <div className="mb-10 flex justify-center items-center">
         <ButtonWithBottomBorder
+        item={"desserts"}
           content={"ORDER YOUR FAVOURITE FOOD"}
         ></ButtonWithBottomBorder>
       </div>
@@ -67,6 +71,7 @@ const Menu = () => {
 
       <div className="mb-10 flex justify-center items-center">
         <ButtonWithBottomBorder
+        item={"pizza"}
           content={"ORDER YOUR FAVOURITE FOOD"}
         ></ButtonWithBottomBorder>
       </div>
@@ -83,6 +88,7 @@ const Menu = () => {
 
       <div className="mb-10 flex justify-center items-center">
         <ButtonWithBottomBorder
+        item={"salad"}
           content={"ORDER YOUR FAVOURITE FOOD"}
         ></ButtonWithBottomBorder>
       </div>
@@ -99,6 +105,7 @@ const Menu = () => {
 
       <div className="mb-10 flex justify-center items-center">
         <ButtonWithBottomBorder
+        item={"soup"}
           content={"ORDER YOUR FAVOURITE FOOD"}
         ></ButtonWithBottomBorder>
       </div>
