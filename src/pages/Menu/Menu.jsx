@@ -7,6 +7,7 @@ import useMenu from "../../hooks/useMenu";
 import MenuCategory from "./MenuCategory/MenuCategory";
 import dessertImg from "../../assets/menu/dessert-bg.jpeg";
 import pizzaImg from "../../assets/menu/pizza-bg.jpg"
+import saladImg from "../../assets/menu/salad-bg.jpg"
 
 const Menu = () => {
   const [menu] = useMenu();
@@ -48,6 +49,16 @@ const Menu = () => {
           "Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
         }
         coverImg={pizzaImg}
+      ></MenuCategory>
+
+      {/* Salad items section */}
+      <MenuCategory
+        items={salad}
+        heading={"SALADS"}
+        subTitle={
+          "Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
+        }
+        coverImg={saladImg}
       ></MenuCategory>
     </div>
   );
