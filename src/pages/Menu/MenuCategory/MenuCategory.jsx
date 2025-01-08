@@ -5,7 +5,7 @@ import Cover from "../../Shared/Cover/Cover";
 
 const MenuCategory = ({ items, heading, subTitle, coverImg }) => {
   return (
-    <div className="mb-20">
+    <div className="mb-10">
       {heading && <Cover
         img={coverImg}
         title={heading}
