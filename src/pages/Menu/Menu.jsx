@@ -5,7 +5,8 @@ import menuImg from "../../assets/menu/banner3.jpg";
 import SectionTitle from "../../components/SectionTitle/SectionTitle";
 import useMenu from "../../hooks/useMenu";
 import MenuCategory from "./MenuCategory/MenuCategory";
-import dessertImg from "../../assets/menu/dessert-bg.jpeg"
+import dessertImg from "../../assets/menu/dessert-bg.jpeg";
+import pizzaImg from "../../assets/menu/pizza-bg.jpg"
 
 const Menu = () => {
   const [menu] = useMenu();
@@ -31,12 +32,23 @@ const Menu = () => {
       <MenuCategory items={offered}></MenuCategory>
       {/* dessert item section */}
       <MenuCategory
-      items={desserts}
-      heading={"DESSERTS"}
-      subTitle={"Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."}
-      coverImg={dessertImg}
+        items={desserts}
+        heading={"DESSERTS"}
+        subTitle={
+          "Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
+        }
+        coverImg={dessertImg}
       ></MenuCategory>
 
+      {/* Pizza item section */}
+      <MenuCategory
+        items={pizza}
+        heading={"Pizza"}
+        subTitle={
+          "Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
+        }
+        coverImg={pizzaImg}
+      ></MenuCategory>
     </div>
   );
 };
