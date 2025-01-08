@@ -4,7 +4,7 @@ const MenuItem = ({ item }) => {
   const { image, name, price, recipe } = item;
   return (
     <div className="flex space-x-2">
-      <img className="w-[100px] rounded-full rounded-tl-none border-2" src={"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSlMyzfmXp2bWMGCMLw2JC4uXpXR1qEGTCBvw&s"} alt="" />
+      <img className="w-[80px] rounded-full rounded-tl-none" src={"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSlMyzfmXp2bWMGCMLw2JC4uXpXR1qEGTCBvw&s"} alt="" />
       <div>
         <h3 className="uppercase">{name} ---------------</h3>
         <p>{recipe}</p>

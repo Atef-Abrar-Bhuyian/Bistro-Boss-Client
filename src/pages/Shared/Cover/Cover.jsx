@@ -10,7 +10,7 @@ const Cover = ({ img, title,description }) => {
       bgImageAlt="the dog"
       strength={-150}
     >
-      <div className="hero h-[500px] border-2">
+      <div className="hero h-[500px]">
         <div className="hero-overlay bg-opacity-60"></div>
         <div className="hero-content text-center text-white">
           <div className="max-w-md">
@@ -19,7 +19,6 @@ const Cover = ({ img, title,description }) => {
           </div>
         </div>
       </div>
-      <div style={{ height: "200px" }} />
     </Parallax>
   );
 };
