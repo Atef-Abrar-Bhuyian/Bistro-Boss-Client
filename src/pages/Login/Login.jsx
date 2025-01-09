@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import {
   loadCaptchaEnginge,
   LoadCanvasTemplate,
@@ -7,10 +7,16 @@ import {
 } from "react-simple-captcha";
 
 import loginImg from "../../assets/others/authentication2.png";
+import { AuthContext } from "../../provider/AuthProvider";
+import { Link } from "react-router-dom";
+import ReactHelmet from "../../components/ReactHelmet/ReactHelmet";
 
 const Login = () => {
   const captchaRef = useRef(null);
   const [disabled, setDisbaled] = useState(true);
+
+  const { signIn } = useContext(AuthContext);
+
   useEffect(() => {
     loadCaptchaEnginge(6);
   }, []);
@@ -20,21 +26,26 @@ const Login = () => {
     const form = e.target;
     const email = form.email.value;
     const password = form.password.value;
-    console.log(email, password);
+    signIn(email,password)
+    .then(result =>{
+      const user = result.user;
+      console.log(user)
+    })
   };
 
   const handleValidateCaptcha = (e) => {
     e.preventDefault();
     let user_captcha_value = captchaRef.current.value;
     if (validateCaptcha(user_captcha_value)) {
-      setDisbaled (false);
+      setDisbaled(false);
     } else {
-        setDisbaled(true);
+      setDisbaled(true);
     }
   };
 
   return (
     <div className="hero bg-base-200 min-h-screen">
+      <ReactHelmet title={"Login"}></ReactHelmet>
       <div className="hero-content flex flex-col md:flex-row gap-8">
         <div className="text-center md:w-1/2">
           <img src={loginImg} alt="login image" />
@@ -42,7 +53,7 @@ const Login = () => {
         <div className="card bg-base-100 md:w-1/2 w-full shrink-0  shadow-md shadow-[#c7a169]">
           <form onSubmit={handleLogin} className="card-body">
             <h1 className="text-xl md:text-3xl font-bold text-center">
-              Login now!
+              Login Now!
             </h1>
             <div className="form-control">
               <label className="label">
@@ -101,6 +112,7 @@ const Login = () => {
               </button>
             </div>
           </form>
+          <p className="m-4 text-center"><small>New Here? <Link  className="text-[#c7a169] font-bold" to={"/signup"}>Create An Account</Link></small></p>
         </div>
       </div>
     </div>
