@@ -5,11 +5,13 @@ import {
   LoadCanvasTemplateNoReload,
   validateCaptcha,
 } from "react-simple-captcha";
+import 'animate.css';
 
 import loginImg from "../../assets/others/authentication2.png";
 import { AuthContext } from "../../provider/AuthProvider";
 import { Link } from "react-router-dom";
 import ReactHelmet from "../../components/ReactHelmet/ReactHelmet";
+import Swal from "sweetalert2";
 
 const Login = () => {
   const captchaRef = useRef(null);
@@ -26,10 +28,28 @@ const Login = () => {
     const form = e.target;
     const email = form.email.value;
     const password = form.password.value;
+
     signIn(email,password)
     .then(result =>{
       const user = result.user;
-      console.log(user)
+      Swal.fire({
+        title: "Login Successful",
+        showClass: {
+          popup: `
+            animate__animated
+            animate__fadeInUp
+            animate__faster
+          `
+        },
+        hideClass: {
+          popup: `
+            animate__animated
+            animate__fadeOutDown
+            animate__faster
+          `
+        }
+      });
+      
     })
   };
 
