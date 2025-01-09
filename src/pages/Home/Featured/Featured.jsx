@@ -19,7 +19,7 @@ const Featured = () => {
             <p>Dec 20, 2024</p>
             <p className="uppercase">Where Can I Get Some</p>
             <p>Welcome to a world where flavors come alive, and every dish tells a story. Our chefs combine the freshest ingredients with timeless recipes to create culinary masterpieces that delight your senses. From the first bite to the last, experience a journey of taste, texture, and aroma in a warm, inviting ambiance. Whether you're here for a casual meal or a special celebration, we're dedicated to making every moment unforgettable. Sit back, relax, and let us serve you the finest flavors crafted with passion and care</p>
-            <ButtonWithBottomBorder content={"Order Now"}></ButtonWithBottomBorder>
+            <ButtonWithBottomBorder content={"Order Now"} item={"salad"}></ButtonWithBottomBorder>
         </div>
       </div>
     </div>

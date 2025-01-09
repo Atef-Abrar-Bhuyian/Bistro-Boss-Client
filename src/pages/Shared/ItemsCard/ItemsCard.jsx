@@ -2,7 +2,7 @@ import React from "react";
 import slide5 from "../../../assets/home/slide5.jpg"
 const ItemsCard = ({ image, heading, details }) => {
   return (
-    <div className="card bg-base-100 w-96 shadow-xl">
+    <div className="card bg-base-100 shadow-xl">
       <figure>
         <img
           src={slide5}

@@ -23,14 +23,14 @@ const OrderFood = () => {
   const drinks = menu.filter((item) => item.category === "drinks");
   return (
     <div>
-        <ReactHelmet title={"Order"}></ReactHelmet>
+      <ReactHelmet title={"Order"}></ReactHelmet>
       <Cover
         img={orderCover}
         title={"Order Food"}
         description={"Would you like to try a dish?"}
       ></Cover>
-      <Tabs selectedIndex={tabIndex} onSelect={(index) => setTabIndex(index)}>
-        <TabList>
+      <Tabs className={"my-20"} selectedIndex={tabIndex} onSelect={(index) => setTabIndex(index)}>
+        <TabList  className={"w-1/2 m-5 mx-auto text-center"}>
           <Tab>Salad</Tab>
           <Tab>Pizza</Tab>
           <Tab>Soup</Tab>
