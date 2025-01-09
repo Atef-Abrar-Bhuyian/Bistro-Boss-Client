@@ -1,24 +1,52 @@
 import React, { useContext } from "react";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import ReactHelmet from "../../components/ReactHelmet/ReactHelmet";
 import signUpImg from "../../assets/others/authentication2.png";
 import { AuthContext } from "../../provider/AuthProvider";
+import Swal from "sweetalert2";
+import "animate.css";
 
 const SignUp = () => {
   const {
     register,
     handleSubmit,
     watch,
+    reset,
     formState: { errors },
   } = useForm();
-
-  const { createUser } = useContext(AuthContext);
+  const { createUser, updateUserProfile } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   const onSubmit = (data) => {
     createUser(data.email, data.password).then((result) => {
       const loggedUser = result.user;
-      console.log(loggedUser);
+      updateUserProfile(data.name, data.photo)
+        .then(() => {
+          console.log("user Profile Info Updated");
+          reset();
+          Swal.fire({
+            title: "Profile Created Successfully",
+            showClass: {
+              popup: `
+                    animate__animated
+                    animate__fadeInUp
+                    animate__faster
+                  `,
+            },
+            hideClass: {
+              popup: `
+                    animate__animated
+                    animate__fadeOutDown
+                    animate__faster
+                  `,
+            },
+          });
+          navigate("/");
+        })
+        .catch((err) => {
+          console.log(err);
+        });
     });
   };
 
