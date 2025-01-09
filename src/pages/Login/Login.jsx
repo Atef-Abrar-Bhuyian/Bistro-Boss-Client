@@ -5,19 +5,22 @@ import {
   LoadCanvasTemplateNoReload,
   validateCaptcha,
 } from "react-simple-captcha";
-import 'animate.css';
+import "animate.css";
 
 import loginImg from "../../assets/others/authentication2.png";
 import { AuthContext } from "../../provider/AuthProvider";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import ReactHelmet from "../../components/ReactHelmet/ReactHelmet";
 import Swal from "sweetalert2";
 
 const Login = () => {
   const captchaRef = useRef(null);
   const [disabled, setDisbaled] = useState(true);
-
   const { signIn } = useContext(AuthContext);
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const from = location.state?.from?.pathname || "/";
 
   useEffect(() => {
     loadCaptchaEnginge(6);
@@ -29,8 +32,7 @@ const Login = () => {
     const email = form.email.value;
     const password = form.password.value;
 
-    signIn(email,password)
-    .then(result =>{
+    signIn(email, password).then((result) => {
       const user = result.user;
       Swal.fire({
         title: "Login Successful",
@@ -39,18 +41,18 @@ const Login = () => {
             animate__animated
             animate__fadeInUp
             animate__faster
-          `
+          `,
         },
         hideClass: {
           popup: `
             animate__animated
             animate__fadeOutDown
             animate__faster
-          `
-        }
+          `,
+        },
       });
-      
-    })
+      navigate(from, { replace: true });
+    });
   };
 
   const handleValidateCaptcha = (e) => {
@@ -132,7 +134,14 @@ const Login = () => {
               </button>
             </div>
           </form>
-          <p className="m-4 text-center"><small>New Here? <Link  className="text-[#c7a169] font-bold" to={"/signup"}>Create An Account</Link></small></p>
+          <p className="m-4 text-center">
+            <small>
+              New Here?{" "}
+              <Link className="text-[#c7a169] font-bold" to={"/signup"}>
+                Create An Account
+              </Link>
+            </small>
+          </p>
         </div>
       </div>
     </div>
