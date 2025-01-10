@@ -22,7 +22,7 @@ const RecommendedItems = () => {
 
       <div className="md:grid grid-cols-2 items-center justify-items-center gap-4">
         {
-            items.map(item => <ItemsCard key={item._id} heading={item.name} details={item.recipe} image={item.image}></ItemsCard>)
+            items.map(item => <ItemsCard key={item._id} heading={item.name} details={item.recipe} image={item.image} item={item}></ItemsCard>)
         }
       </div>
     </div>

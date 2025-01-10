@@ -31,6 +31,7 @@ const OrderTab = ({ items }) => {
                 key={item._id}
                 heading={item.name}
                 details={item.recipe}
+                item = {item}
               ></ItemsCard>
             ))}
           </div>

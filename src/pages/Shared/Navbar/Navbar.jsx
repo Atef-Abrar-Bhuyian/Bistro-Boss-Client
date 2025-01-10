@@ -2,11 +2,11 @@ import React, { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../../provider/AuthProvider";
 import Swal from "sweetalert2";
-import 'animate.css';
+import "animate.css";
+import { FaOpencart } from "react-icons/fa";
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
-
   const handleLogOut = () => {
     logOut()
       .then(() => {
@@ -41,6 +41,14 @@ const Navbar = () => {
       </li>
       <li>
         <NavLink to={"/order/salad"}>Order</NavLink>
+      </li>
+      <li>
+        <Link to={"/"}>
+          <button className="flex gap-1">
+            <FaOpencart className="text-xl" />
+            <div className="badge badge-secondary -mt-2">+0</div>
+          </button>
+        </Link>
       </li>
       {user ? (
         <li>
