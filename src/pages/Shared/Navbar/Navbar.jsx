@@ -49,7 +49,7 @@ const Navbar = () => {
         <NavLink to={"/order/salad"}>Order</NavLink>
       </li>
       <li>
-        <Link to={"/"}>
+        <Link to={"/dashboard/cart"}>
           <button className="flex gap-1">
             <FaOpencart className="text-xl" />
             <div className="badge border-none bg-[#dd9323] text-white -mt-2">+{cart.length}</div>
