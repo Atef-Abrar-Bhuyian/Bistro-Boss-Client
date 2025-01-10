@@ -4,9 +4,15 @@ import { AuthContext } from "../../../provider/AuthProvider";
 import Swal from "sweetalert2";
 import "animate.css";
 import { FaOpencart } from "react-icons/fa";
+import useCart from "../../../hooks/useCart";
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
+  const [cart] = useCart();
+
+
+
+
   const handleLogOut = () => {
     logOut()
       .then(() => {
@@ -46,7 +52,7 @@ const Navbar = () => {
         <Link to={"/"}>
           <button className="flex gap-1">
             <FaOpencart className="text-xl" />
-            <div className="badge badge-secondary -mt-2">+0</div>
+            <div className="badge border-none bg-[#dd9323] text-white -mt-2">+{cart.length}</div>
           </button>
         </Link>
       </li>
