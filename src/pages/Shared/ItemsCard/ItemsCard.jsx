@@ -59,7 +59,7 @@ const ItemsCard = ({ image, heading, details, item }) => {
   return (
     <div className="card bg-base-100 shadow-xl">
       <figure>
-        <img src={slide5} alt={heading} className="rounded-xl w-full h-80" />
+        <img src={image} alt={`${heading} image`} className="rounded-xl w-full h-80" />
       </figure>
       <div className="card-body items-center text-center">
         <h2 className="card-title">{heading}</h2>

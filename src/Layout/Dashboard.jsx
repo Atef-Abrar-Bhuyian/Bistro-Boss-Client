@@ -9,12 +9,14 @@ import {
 import { MdEmail, MdOutlineRestaurantMenu } from "react-icons/md";
 import { RiMenu5Fill } from "react-icons/ri";
 import { NavLink, Outlet } from "react-router-dom";
+import useCart from "../hooks/useCart";
 
 const Dashboard = () => {
+    const [cart] = useCart()
   return (
-    <div className="flex gap-20">
+    <div className="flex flex-col md:flex-row gap-20">
       {/* Dashboard Side bar */}
-      <div className="w-64 min-h-screen bg-[#D1A054]">
+      <div className="md:w-64 md:min-h-screen bg-[#D1A054]">
         <ul className="menu p-4 gap-3 text-white">
           <li className="hover:bg-neutral rounded-lg">
             <NavLink to={"/dashboard/userHome"}>
@@ -31,7 +33,7 @@ const Dashboard = () => {
           <li className="hover:bg-neutral rounded-lg">
             <NavLink to={"/dashboard/cart"}>
               <FaShoppingCart></FaShoppingCart>
-              My Cart
+              My Cart ({cart.length})
             </NavLink>
           </li>
           <li className="hover:bg-neutral rounded-lg">
@@ -76,7 +78,7 @@ const Dashboard = () => {
         </ul>
       </div>
       {/* Dashboard Content */}
-      <div className="flex-1 justify-center items-center flex flex-col gap-4">
+      <div className="flex-1 p-10">
         <Outlet></Outlet>
       </div>
     </div>
