@@ -13,12 +13,12 @@ import { MdEmail, MdOutlineRestaurantMenu } from "react-icons/md";
 import { RiMenu5Fill } from "react-icons/ri";
 import { NavLink, Outlet } from "react-router-dom";
 import useCart from "../hooks/useCart";
+import useAdmin from "../hooks/useAdmin";
 
 const Dashboard = () => {
   const [cart] = useCart();
 
-  const isAdmin = true;
-  // todo: get isAdmin value from the database
+  const [isAdmin] = useAdmin();
 
   return (
     <div className="flex flex-col md:flex-row gap-20">
