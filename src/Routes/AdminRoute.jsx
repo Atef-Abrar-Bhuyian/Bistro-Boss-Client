@@ -4,7 +4,7 @@ import useAuth from "../hooks/useAuth";
 import useAdmin from "../hooks/useAdmin";
 
 const AdminRoute = ({children}) => {
-    const {user} = useAuth();
+    const {user,loading} = useAuth();
     const [isAdmin, isAdminLoading] = useAdmin();
     const location = useLocation();
 
