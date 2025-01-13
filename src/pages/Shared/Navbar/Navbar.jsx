@@ -18,6 +18,9 @@ const Navbar = () => {
       .then(() => {
         Swal.fire({
           title: "Logout Successful",
+          background:"#000",
+          color:"#fff",
+          confirmButtonColor: "#D1A054",
           showClass: {
             popup: `
                     animate__animated

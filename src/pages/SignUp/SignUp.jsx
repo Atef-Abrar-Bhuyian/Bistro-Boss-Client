@@ -35,6 +35,9 @@ const SignUp = () => {
               reset();
               Swal.fire({
                 title: "Profile Created Successfully",
+                background: "#000",
+                color: "#fff",
+                confirmButtonColor: "#D1A054",
                 showClass: {
                   popup: `
                     animate__animated

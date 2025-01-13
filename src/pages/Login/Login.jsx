@@ -37,6 +37,9 @@ const Login = () => {
       const user = result.user;
       Swal.fire({
         title: "Login Successful",
+        background: "#000",
+        color: "#fff",
+        confirmButtonColor: "#D1A054",
         showClass: {
           popup: `
             animate__animated
