@@ -4,15 +4,18 @@ import { useForm } from "react-hook-form";
 import useAxiosPublic from "../../../hooks/useAxiosPublic";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import { FaUtensils } from "react-icons/fa";
+import Swal from "sweetalert2";
 
+const imgae_hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY;
+const image_hosting_api = `https://api.imgbb.com/1/upload?key=${imgae_hosting_key}`;
 const UpdateItem = () => {
   const { name, category, price, recipe, _id } = useLoaderData();
-  const { register, handleSubmit, reset } = useForm();
+  const { register, handleSubmit } = useForm();
 
   const axiosPublic = useAxiosPublic();
   const axiosSecure = useAxiosSecure();
+
   const onSubmit = async (data) => {
-    console.log(data);
     // upload to imgbb and then get an url
     const imageFile = { image: data.image[0] };
     const res = await axiosPublic.post(image_hosting_api, imageFile, {
@@ -27,13 +30,12 @@ const UpdateItem = () => {
         category: data.category,
         price: parseInt(data.price),
         recipe: data.recipe,
-        iamge: res.data.data.display_url,
+        image: res.data.data.display_url,
       };
       //
       const menuRes = await axiosSecure.patch(`/menu/${_id}`, menuItem);
       if (menuRes.data.modifiedCount > 0) {
         // show success popup
-        // reset();
         Swal.fire({
           title: `${data.name} is updated to the menu`,
           background: "#000",
