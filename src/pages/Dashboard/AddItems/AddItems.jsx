@@ -32,8 +32,7 @@ const AddItems = () => {
         iamge: res.data.data.display_url,
       };
       //
-      const menuRes = await axiosSecure.post("/menu", menuitem);
-      console.log(menuRes.data);
+      const menuRes = await axiosSecure.post("/menu", menuItem);
       if (menuRes.data.insertedId) {
         // show success popup
         reset();
