@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import useCart from "../../../hooks/useCart";
 import useAuth from "../../../hooks/useAuth";
+import Swal from "sweetalert2";
 
 const CheckOutForm = () => {
   const [error, setError] = useState("");
@@ -12,16 +13,18 @@ const CheckOutForm = () => {
   const elements = useElements();
   const axiosSecure = useAxiosSecure();
   const { user } = useAuth();
-  const [cart] = useCart();
+  const [cart, refetch] = useCart();
   const totalPrice = cart.reduce((total, item) => total + item.price, 0);
 
   useEffect(() => {
-    axiosSecure
-      .post("/create-payment-intent", { price: totalPrice })
-      .then((res) => {
-        console.log(res.data.clientSecret);
-        setClientSecret(res.data.clientSecret);
-      });
+    if (totalPrice > 0) {
+      axiosSecure
+        .post("/create-payment-intent", { price: totalPrice })
+        .then((res) => {
+          console.log(res.data.clientSecret);
+          setClientSecret(res.data.clientSecret);
+        });
+    }
   }, [axiosSecure, totalPrice]);
 
   const handleSubmit = async (e) => {
@@ -68,7 +71,32 @@ const CheckOutForm = () => {
       console.log("payment intent", paymentIntent);
       if (paymentIntent.status === "succeeded")
         console.log("transection id", paymentIntent.id);
-      setTransectionId(paymentIntent.id)
+      setTransectionId(paymentIntent.id);
+
+      // now save the payment in the database
+      const payment = {
+        email: user?.email,
+        price: totalPrice,
+        transectionId: paymentIntent.id,
+        date: new Date(), // utc date convert, use moment js
+        cartIds: cart.map((item) => item._id),
+        menuItemIds: cart.map((item) => item.menuID),
+        status: "pending",
+      };
+
+      const res = await axiosSecure.post("/payment", payment);
+      refetch();
+      if (res.data?.paymentResult?.insertedId) {
+        Swal.fire({
+          position: "middel-center",
+          icon: "success",
+          title: "Thank you. You Payment is Successful",
+          background: "#000",
+          color: "#fff",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+      }
     }
   };
 
@@ -100,7 +128,11 @@ const CheckOutForm = () => {
           Pay
         </button>
         <p className="text-red-600">{error}</p>
-        {transectionId && <p className="text-green-500">Your Transection Id is : {transectionId}</p> }
+        {transectionId && (
+          <p className="text-green-500">
+            Your Transection Id is : {transectionId}
+          </p>
+        )}
       </form>
     </div>
   );
