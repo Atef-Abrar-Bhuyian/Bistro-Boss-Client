@@ -85,9 +85,9 @@ const Dashboard = () => {
                 </NavLink>
               </li>
               <li className="hover:bg-neutral rounded-lg">
-                <NavLink to={"/dashboard/bookings"}>
+                <NavLink to={"/dashboard/paymentHistory"}>
                   <FaList></FaList>
-                  My Bookings
+                  Payment History
                 </NavLink>
               </li>
             </>
