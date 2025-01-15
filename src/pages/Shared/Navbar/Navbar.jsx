@@ -5,21 +5,20 @@ import Swal from "sweetalert2";
 import "animate.css";
 import { FaOpencart } from "react-icons/fa";
 import useCart from "../../../hooks/useCart";
+import useAdmin from "../../../hooks/useAdmin";
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
   const [cart] = useCart();
-
-
-
+  const [isAdmin] = useAdmin();
 
   const handleLogOut = () => {
     logOut()
       .then(() => {
         Swal.fire({
           title: "Logout Successful",
-          background:"#000",
-          color:"#fff",
+          background: "#000",
+          color: "#fff",
           confirmButtonColor: "#D1A054",
           showClass: {
             popup: `
@@ -51,11 +50,23 @@ const Navbar = () => {
       <li>
         <NavLink to={"/order/salad"}>Order</NavLink>
       </li>
+      {user && isAdmin && (
+        <li>
+          <NavLink to={"/dashboard/adminHome"}>Dashboard</NavLink>
+        </li>
+      )}
+      {user && !isAdmin && (
+        <li>
+          <NavLink to={"/dashboard/userHome"}>Dashboard</NavLink>
+        </li>
+      )}
       <li>
         <Link to={"/dashboard/cart"}>
           <button className="flex gap-1">
             <FaOpencart className="text-xl" />
-            <div className="badge border-none bg-[#dd9323] text-white -mt-2">+{cart.length}</div>
+            <div className="badge border-none bg-[#dd9323] text-white -mt-2">
+              +{cart.length}
+            </div>
           </button>
         </Link>
       </li>
