@@ -32,6 +32,11 @@ const Payment = () => {
           <option value={"card"}>Card Pay</option>
         </select>
       </div>
+      {paymentOption === "" && (
+        <div className="mt-10">
+          <h1 className="text-xl font-bold text-center mt-40">Please Select A Payment Option</h1>
+        </div>
+      )}
       {paymentOption === "card" && (
         <div className="mt-10">
           <Elements stripe={stripePromise}>

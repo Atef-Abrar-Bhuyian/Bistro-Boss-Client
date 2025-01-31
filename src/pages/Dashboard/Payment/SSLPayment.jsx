@@ -22,7 +22,9 @@ const SSLPayment = () => {
     };
 
     const response = await axiosSecure.post("/create-ssl-payment", payment);
-    console.log(response);
+    if (response?.data?.gatewayUrl) {
+      window.location.replace(response?.data?.gatewayUrl);
+    }
   };
 
   return (
@@ -34,6 +36,8 @@ const SSLPayment = () => {
         <input
           type="email"
           placeholder="Your Email"
+          defaultValue={user?.email}
+          readOnly
           className="input input-bordered"
           required
         />
