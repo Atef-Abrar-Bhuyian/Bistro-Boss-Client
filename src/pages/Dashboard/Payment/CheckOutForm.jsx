@@ -102,6 +102,7 @@ const CheckOutForm = () => {
 
   return (
     <div>
+      <h1 className="text-xl font-bold my-10 text-center">Please Enter Your Card Details </h1>
       <form onSubmit={handleSubmit}>
         <CardElement
           options={{
@@ -121,7 +122,7 @@ const CheckOutForm = () => {
         />
 
         <button
-          className="btn my-4"
+          className="btn my-4 bg-[#D1A054] text-white hover:text-[#D1A054] hover:bg-white"
           type="submit"
           disabled={!stripe || !clientSecret}
         >
