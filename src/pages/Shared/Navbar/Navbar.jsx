@@ -62,16 +62,18 @@ const Navbar = () => {
           <NavLink to={"/dashboard/userHome"}>Dashboard</NavLink>
         </li>
       )}
-      <li>
-        <Link to={"/dashboard/cart"}>
-          <button className="flex gap-1">
-            <FaOpencart className="text-xl" />
-            <div className="badge border-none bg-[#dd9323] text-white -mt-2">
-              +{cart.length}
-            </div>
-          </button>
-        </Link>
-      </li>
+      {user && (
+        <li>
+          <Link to={"/dashboard/cart"}>
+            <button className="flex gap-1">
+              <FaOpencart className="text-xl" />
+              <div className="badge border-none bg-[#dd9323] text-white -mt-2">
+                +{cart.length}
+              </div>
+            </button>
+          </Link>
+        </li>
+      )}
       {user ? (
         <li>
           <button onClick={handleLogOut}>Logout</button>
@@ -121,7 +123,7 @@ const Navbar = () => {
         <ul className="menu menu-horizontal px-1">{navLinks}</ul>
       </div>
       <div className="navbar-end">
-        <a className="btn">Button</a>
+        
       </div>
     </div>
   );
