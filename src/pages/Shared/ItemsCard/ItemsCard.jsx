@@ -1,5 +1,4 @@
 import React from "react";
-import slide5 from "../../../assets/home/slide5.jpg";
 import useAuth from "../../../hooks/useAuth";
 import Swal from "sweetalert2";
 import { useLocation, useNavigate } from "react-router-dom";
@@ -58,7 +57,7 @@ const ItemsCard = ({ image, heading, details, item }) => {
     }
   };
   return (
-    <div className="card bg-base-100 shadow-md border shadow-white">
+    <div className="card bg-base-100 shadow-md border shadow-white mb-6">
       <figure>
         <img src={item.image} alt={`${heading} image`} className="rounded-xl w-full h-80" />
       </figure>
