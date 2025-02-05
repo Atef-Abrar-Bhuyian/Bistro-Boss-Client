@@ -78,20 +78,20 @@ To run Bistro Boss locally, follow these steps:
 ##
 
 ### 1️⃣ Clone the Repository  
-git clone https://github.com/Atef-Abrar-Bhuyian/Bistro-Boss-Client.git
-cd bistro-boss
+- git clone https://github.com/Atef-Abrar-Bhuyian/Bistro-Boss-Client.git
+- cd bistro-boss
 
 ### 2️⃣ Install Dependencies
-npm install  
+- npm install  
 
 ### 3️⃣ Set Up .env
-VITE_FIREBASE_API_KEY=your_api_key
-VITE_FIREBASE_AUTH_DOMAIN=your_auth_domain
-VITE_FIREBASE_PROJECT_ID=your_project_id
-VITE_FIREBASE_STORAGE_BUCKET=your_storage_bucket
-VITE_FIREBASE_MESSAGING_SENDER_ID=your_messaging_sender_id
-VITE_FIREBASE_APP_ID=your_app_id
-VITE_STRIPE_PUBLIC_KEY=your_publishable_key
+# VITE_FIREBASE_API_KEY=your_api_key
+# VITE_FIREBASE_AUTH_DOMAIN=your_auth_domain
+# VITE_FIREBASE_PROJECT_ID=your_project_id
+# VITE_FIREBASE_STORAGE_BUCKET=your_storage_bucket
+# VITE_FIREBASE_MESSAGING_SENDER_ID=your_messaging_sender_id
+# VITE_FIREBASE_APP_ID=your_app_id
+# VITE_STRIPE_PUBLIC_KEY=your_publishable_key
 
 ### 4️⃣ Start the Development Server
 npm run dev
